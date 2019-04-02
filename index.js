@@ -56,7 +56,7 @@ export default () => {
     {
       clientID: VK_APP_ID,
       clientSecret: VK_APP_SECRET,
-      callbackURL: 'http://localhost:4000/auth/vk/callback',
+      callbackURL: '/auth/vk/callback',
       scope: ['email'],
       profileFields: ['email'],
     },
