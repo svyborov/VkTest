@@ -79,7 +79,7 @@ export default () => {
 
   const checkAuthenticated = (req, res, next) => {
     if (!req.isAuthenticated()) {
-      res.redirect('/login');
+      res.redirect('/');
       return;
     }
     next();
