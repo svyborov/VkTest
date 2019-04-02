@@ -1,0 +1,21 @@
+extends /layout.pug
+
+block content
+  h4 Пользователь:
+  p= user.displayName
+  
+  h4 Друзья:
+  table.table.table-striped        
+    thead
+      tr
+        th Имя
+        th Ссылка
+    tbody
+      each friend in friends
+        tr
+          td= `${friend.first_name} ${friend.last_name}`
+          td
+            - const friendUrl = `https://vk.com/${friend.domain}`
+            a(href=friendUrl) Profile
+        
+  a.btn.btn-primary(href='/logout') Log out
