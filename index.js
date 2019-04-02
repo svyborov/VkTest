@@ -93,14 +93,6 @@ export default () => {
     res.render('index', { user: req.user });
   });
 
-  app.get('/login', (req, res) => {
-    if (req.isAuthenticated()) {
-      res.redirect('friends');
-      return;
-    }
-    res.render('index', { user: req.user });
-  });
-
   app.get('/friends', checkAuthenticated, async (req, res) => {
     const { id } = req.user;
     const { user } = req;
