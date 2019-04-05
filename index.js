@@ -5,7 +5,6 @@ import url from 'url';
 import path from 'path';
 import VKontakte from 'passport-vkontakte';
 import dotenv from 'dotenv';
-import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import expressSession from 'express-session';
 
@@ -71,9 +70,8 @@ export default () => {
   app.set('views', `${__dirname}/views`);
   app.set('view engine', 'pug');
   app.locals.basedir = path.join(__dirname, 'views');
-  app.use(cookieParser());
   app.use(bodyParser());
-  app.use(expressSession({ secret: 'keyboard cat' }));
+  app.use(expressSession({ secret: 'keyboard cat', cookie: {} }));
   app.use(passport.initialize());
   app.use(passport.session());
 
