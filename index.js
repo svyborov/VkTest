@@ -71,7 +71,12 @@ export default () => {
   app.set('view engine', 'pug');
   app.locals.basedir = path.join(__dirname, 'views');
   app.use(bodyParser());
-  app.use(expressSession({ secret: 'keyboard cat', cookie: {} }));
+  app.use(expressSession({
+    secret: 'keyboard cat',
+    cookie: {},
+    maxAge: new Date(Date.now() + 3600000),
+    expires: new Date(Date.now() + 3600000),
+  }));
   app.use(passport.initialize());
   app.use(passport.session());
 
