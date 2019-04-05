@@ -73,9 +73,9 @@ export default () => {
   app.use(bodyParser());
   app.use(expressSession({
     secret: 'keyboard cat',
-    cookie: {},
-    maxAge: new Date(Date.now() + 3600000),
-    expires: new Date(Date.now() + 3600000),
+    cookie: {
+      maxAge: 365 * 24 * 60 * 60 * 1000,
+    },
   }));
   app.use(passport.initialize());
   app.use(passport.session());
